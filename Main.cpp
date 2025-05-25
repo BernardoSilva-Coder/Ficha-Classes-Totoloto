@@ -6,6 +6,7 @@ int main()
     int *chaveUtilizador = new int[6]; // Tamanho da chave do utilizador
     Chave::GerarChaveAleatoria(chavePremiada);
     int op;
+    string input;
     do
     {
         system("CLS");
@@ -20,7 +21,16 @@ int main()
         cout << "  4. Sair                                 " << endl;
         cout << "==========================================" << endl;
         cout << "Escolha uma opcao (1-4): ";
-        cin >> op;
+        cin >> input;
+        try // Verificacao para so a aceitar numeros de 1 a 4
+        {
+            op = stoi(input);
+        }
+        catch (...)
+        {
+            cout << endl;
+            op = -1; // opcao invalida
+        }
         switch (op)
         {
         case 1:
@@ -76,7 +86,7 @@ int main()
             cout << "A sair...." << endl;
             break;
         default:
-            cout << "Opção invalida. Tente novamente." << endl;
+            cout << "Opcao invalida.Por favor, escreva um numero inteiro de 1 a 4. Tente novamente." << endl;
             break;
         }
         if (op != 4)

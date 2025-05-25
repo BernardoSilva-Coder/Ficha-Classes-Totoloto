@@ -50,6 +50,8 @@ void Chave::LerChave(int *chaveUtilizador)
 {
     int tamanho = 0; // tamanho da chave do utilizador
     cout << "Faca uma Chave de 5 Numeros + 1 Numero Extra!" << endl;
+    cout << "=============================================" << endl;
+    cout << endl;
     // Ler Chave introduzida pelo utilizador
     while (tamanho < 6)
     {

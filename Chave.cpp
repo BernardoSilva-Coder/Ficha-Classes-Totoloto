@@ -1,8 +1,4 @@
 #include "Chave.h"
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
-#include <cstdlib> // Para rand() e srand()
 
 void Chave::GerarChaveAleatoria(int *chavePremiada)
 {

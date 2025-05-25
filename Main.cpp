@@ -1,10 +1,7 @@
 #include "Chave.h"
-#include <locale>
-#include <codecvt>
 
 int main()
 {
-    setlocale(LC_ALL, "");
     int *chavePremiada = new int[5];   // Tamanho da chave premiada
     int *chaveUtilizador = new int[6]; // Tamanho da chave do utilizador
     Chave::GerarChaveAleatoria(chavePremiada);

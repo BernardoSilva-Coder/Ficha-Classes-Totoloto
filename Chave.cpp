@@ -48,20 +48,39 @@ void Chave::LerChave(int *chaveUtilizador)
     cout << "Faca uma Chave de 5 Numeros + 1 Numero Extra!" << endl;
     cout << "=============================================" << endl;
     cout << endl;
-    // Ler Chave introduzida pelo utilizador
+
     while (tamanho < 6)
     {
         int numero;
-        bool repetido = false;
-        cout << "Digite o numero " << (tamanho + 1) << " da chave (entre 1 e 49): ";
-        cin >> numero;
+        string input;
+        bool entradaValida = false;
 
-        // Verifica se o número está dentro do intervalo permitido
-        if (numero < 1 || numero > 49)
+        while (!entradaValida)
         {
-            cout << "Numero invalido. Digite um numero entre 1 e 49: ";
-            cin >> numero;
+            cout << "Digite o numero " << (tamanho + 1) << " da chave (entre 1 e 49): ";
+            cin >> input;
+
+            try
+            {
+                numero = stoi(input);
+
+                if (numero < 1 || numero > 49)
+                {
+                    cout << "Numero invalido. Deve estar entre 1 e 49." << endl;
+                }
+                else
+                {
+                    entradaValida = true;
+                }
+            }
+            catch (...)
+            {
+                cout << "Entrada invalida. Insira um numero inteiro." << endl;
+            }
         }
+
+        // Verifica se o número já foi introduzido
+        bool repetido = false;
         for (int i = 0; i < tamanho; i++)
         {
             if (chaveUtilizador[i] == numero)
@@ -71,6 +90,7 @@ void Chave::LerChave(int *chaveUtilizador)
                 break;
             }
         }
+
         if (!repetido)
         {
             chaveUtilizador[tamanho] = numero;

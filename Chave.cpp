@@ -60,10 +60,13 @@ void Chave::LerChave(int *chaveUtilizador)
             cout << "Digite o numero " << (tamanho + 1) << " da chave (entre 1 e 49): ";
             cin >> input;
 
-            try
+            // Verifica se a string é composta só por dígitos
+            bool soDigitos = !input.empty() && all_of(input.begin(), input.end(), [](char c)
+                                                      { return isdigit(static_cast<unsigned char>(c)); });
+
+            if (soDigitos)
             {
                 numero = stoi(input);
-
                 if (numero < 1 || numero > 49)
                 {
                     cout << "Numero invalido. Deve estar entre 1 e 49." << endl;
@@ -73,7 +76,7 @@ void Chave::LerChave(int *chaveUtilizador)
                     entradaValida = true;
                 }
             }
-            catch (...)
+            else
             {
                 cout << "Entrada invalida. Insira um numero inteiro." << endl;
             }

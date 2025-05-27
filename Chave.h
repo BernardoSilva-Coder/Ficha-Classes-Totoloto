@@ -4,9 +4,9 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <cstdlib>
 #include <algorithm>
 #include <cstdlib> // Para rand() e srand()
+#include <cctype>
 
 using namespace std;
 

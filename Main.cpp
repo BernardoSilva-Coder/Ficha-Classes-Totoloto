@@ -7,7 +7,7 @@ int main()
     int *chaveUtilizador = new int[6]; // Tamanho da chave do utilizador
     Chave::GerarChaveAleatoria(chavePremiada);
     int op;
-    string input;
+
     do
     {
         system("CLS");
@@ -21,17 +21,20 @@ int main()
         cout << "  3. Verificar Premio                     " << endl;
         cout << "  4. Sair                                 " << endl;
         cout << "==========================================" << endl;
+
+        string input;
         cout << "Escolha uma opcao (1-4): ";
         cin >> input;
-        try // Verificacao para so a aceitar numeros de 1 a 4
-        {
+
+        // Verifica se a string é composta só por dígitos
+        bool soDigitos = !input.empty() && all_of(input.begin(), input.end(), [](char c)
+                                                  { return isdigit(static_cast<unsigned char>(c)); });
+
+        if (soDigitos)
             op = stoi(input);
-        }
-        catch (...)
-        {
-            cout << endl;
-            op = -1; // opcao invalida
-        }
+        else
+            op = -1;
+
         switch (op)
         {
         case 1:

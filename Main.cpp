@@ -55,44 +55,58 @@ int main()
             break;
         case 3:
             system("CLS");
+            Chave::OrdenarChave(chaveUtilizador, chaveUtilizador);
+            cout << "\n==================================" << endl;
+            cout << "      Chave de Utilizador         " << endl;
+            cout << "----------------------------------" << endl;
+            cout << "  ";
+            Chave::ImprimirChave(chaveUtilizador, 6);
+            cout << endl;
+            cout << "==================================" << endl;
+
+            cout << "\n==================================" << endl;
+            cout << "         Chave Premiada           " << endl;
+            cout << "----------------------------------" << endl;
+            cout << "  ";
+            Chave::ImprimirChave(chavePremiada, 5);
+            cout << endl;
+            cout << "==================================" << endl;
+
             {
-                Chave::OrdenarChave(chaveUtilizador, chaveUtilizador);
-                cout << "\n==================================" << endl;
-                cout << "      Chave de Utilizador         " << endl;
-                cout << "----------------------------------" << endl;
-                cout << "  ";
-                Chave::ImprimirChave(chaveUtilizador, 6);
-                cout << endl;
-                cout << "==================================" << endl;
-
-                cout << "\n==================================" << endl;
-                cout << "         Chave Premiada           " << endl;
-                cout << "----------------------------------" << endl;
-                cout << "  ";
-                Chave::ImprimirChave(chavePremiada, 5);
-                cout << endl;
-                cout << "==================================" << endl;
-
                 int acertos = Chave::VerificaPremio(chaveUtilizador, chavePremiada);
                 cout << endl;
-                if (acertos > 0)
+                switch (acertos)
                 {
-                    cout << "Parabens! Ganhou " << acertos << " EUR! A SolVerde O Belo vai ter de lhe pagar! " << endl;
-                }
-                else
-                {
+                case 5:
+                    cout << "Parabens! Ganhou o 1º premio!" << endl;
+                    break;
+                case 4:
+                    cout << "Ganhou o 2º premio!" << endl;
+                    break;
+                case 3:
+                    cout << "Ganhou o 3º premio!" << endl;
+                    break;
+                case 2:
+                    cout << "Ganhou um pequeno premio de consolacao!" << endl;
+                    break;
+                case 1:
+                    cout << "Acertou apenas um numero. Nao ha premio." << endl;
+                    break;
+                default:
                     cout << "Teve azar, A SolVerde O Belo esta invejosa, nao ganhou nada!" << endl;
+                    break;
                 }
-                break;
             }
+            break;
         case 4:
             system("CLS");
             cout << "A sair...." << endl;
             break;
         default:
-            cout << "Opcao invalida.Por favor, escreva um numero inteiro de 1 a 4. Tente novamente." << endl;
+            cout << "Opcao invalida. Por favor, escreva um numero inteiro de 1 a 4. Tente novamente." << endl;
             break;
         }
+
         if (op != 4)
         {
             cout << endl;
@@ -101,5 +115,6 @@ int main()
             cin.get();
         }
     } while (op != 4);
+
     return 0;
 }

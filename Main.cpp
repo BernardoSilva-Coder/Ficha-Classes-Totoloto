@@ -2,7 +2,7 @@
 
 int main()
 {
-    system("color 1F");
+    system("color 27");
     int *chavePremiada = new int[5];   // Tamanho da chave premiada
     int *chaveUtilizador = new int[6]; // Tamanho da chave do utilizador
     Chave::GerarChaveAleatoria(chavePremiada);
